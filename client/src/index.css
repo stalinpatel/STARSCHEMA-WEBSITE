@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  /* 🎨 Typography */
+  --font-heading: "Poppins", sans-serif; /* Headings, Nav items, Buttons */
+  --font-body: "DM Sans", sans-serif; /* Body text, Descriptions */
+  --font-accent: "Quicksand", sans-serif; /* Special elements, Tags, Badges */
+
+  /* 🌈 Brand Colors */
+  --color-brand-coral: #ff6b47; /* Main Coral Orange (from star) */
+  --color-brand-charcoal: #2d2d2d; /* Main Charcoal Gray (from text) */
+  --color-brand-lightCoral: #ff8a6b; /* Light Coral variant */
+
+  /* ☀️ Light Theme Palette */
+  --color-primary: #ff6b47; /* Coral Orange */
+  --color-primary-light: #ff8a6b;
+  --color-primary-dark: #e5553c;
+
+  --color-text-primary: #2d2d2d; /* Charcoal */
+  --color-text-secondary: #666666;
+  --color-text-light: #999999;
+
+  --color-background: #ffffff;
+  --color-surface: #f8f9fa;
+  --color-border: #e5e7eb;
+
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+
+  /* 🌙 Dark Theme Palette */
+  --color-dark-primary: #ff6b47;
+  --color-dark-primary-light: #ff8a6b;
+  --color-dark-primary-dark: #e5553c;
+
+  --color-dark-text-primary: #ffffff;
+  --color-dark-text-secondary: #d1d5db;
+  --color-dark-text-light: #9ca3af;
+
+  --color-dark-background: #111827;
+  --color-dark-surface: #1f2937;
+  --color-dark-border: #374151;
+
+  --color-dark-success: #34d399;
+  --color-dark-warning: #fbbf24;
+  --color-dark-error: #f87171;
+}
