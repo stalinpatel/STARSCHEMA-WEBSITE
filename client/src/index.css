@@ -1,47 +1,74 @@
 @import "tailwindcss";
 
+/* * {
+  border: 1px solid red;
+} */
+
 @theme {
   /* 🎨 Typography */
-  --font-heading: "Poppins", sans-serif; /* Headings, Nav items, Buttons */
-  --font-body: "DM Sans", sans-serif; /* Body text, Descriptions */
-  --font-accent: "Quicksand", sans-serif; /* Special elements, Tags, Badges */
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Lora", serif;
 
   /* 🌈 Brand Colors */
-  --color-brand-coral: #ff6b47; /* Main Coral Orange (from star) */
-  --color-brand-charcoal: #2d2d2d; /* Main Charcoal Gray (from text) */
-  --color-brand-lightCoral: #ff8a6b; /* Light Coral variant */
+  --color-primary: #f67b38; /* Main logo/orange brand color */
+  --color-primary-light: #ff8a6b; /* Slightly lighter tone */
+  --color-primary-dark: #ea580c; /* Hover/darker shade */
 
-  /* ☀️ Light Theme Palette */
-  --color-primary: #ff6b47; /* Coral Orange */
-  --color-primary-light: #ff8a6b;
-  --color-primary-dark: #e5553c;
+  /* 🧡 Button Colors */
+  --color-btn-background: var(--color-primary);
+  --color-btn-hover: var(--color-primary-dark);
+  --color-btn-text: #ffffff;
 
+  /* 🧭 Base UI Colors */
   --color-text-primary: #2d2d2d; /* Charcoal */
   --color-text-secondary: #666666;
-  --color-text-light: #999999;
-
   --color-background: #ffffff;
   --color-surface: #f8f9fa;
   --color-border: #e5e7eb;
-
-  --color-success: #10b981;
-  --color-warning: #f59e0b;
-  --color-error: #ef4444;
-
-  /* 🌙 Dark Theme Palette */
-  --color-dark-primary: #ff6b47;
-  --color-dark-primary-light: #ff8a6b;
-  --color-dark-primary-dark: #e5553c;
-
-  --color-dark-text-primary: #ffffff;
-  --color-dark-text-secondary: #d1d5db;
-  --color-dark-text-light: #9ca3af;
-
-  --color-dark-background: #111827;
-  --color-dark-surface: #1f2937;
-  --color-dark-border: #374151;
-
-  --color-dark-success: #34d399;
-  --color-dark-warning: #fbbf24;
-  --color-dark-error: #f87171;
 }
+
+/* 👇 Base Layer */
+@layer base {
+  html {
+    font-family: var(--font-body);
+  }
+
+  .btn {
+    font-family: var(--font-heading);
+    background-color: var(--color-btn-background);
+    color: var(--color-btn-text);
+    transition: background-color 0.3s ease;
+  }
+
+  .btn:hover {
+    background-color: var(--color-btn-hover);
+  }
+
+  .accent {
+    font-family: var(--font-accent);
+  }
+}
+@layer components {
+  .form-input {
+    @apply w-full  bg-white border border-border rounded-md lg:rounded-lg px-2 lg:px-4 py-2 lg:py-3 text-xs sm:text-sm lg:text-base text-text-primary font-body
+    placeholder-text-secondary/40 focus:ring-1 focus:ring-primary/50 focus:border-primary/50 outline-none
+    transition-all;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.15s ease-in;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+}
+
