@@ -1,14 +1,11 @@
-import React from "react";
-import HeroSection from "../../components/layout/user/Home/HeroSection";
-import StatsSection from "../../components/layout/user/Home/StatsSection";
+import WhyStarschema from "./WhyStarschema";
 
-const Home = () => {
+function Home() {
   return (
-    <div>
-      <HeroSection />
-      <StatsSection />
-    </div>
+    <>
+      <WhyStarschema />
+    </>
   );
-};
+}
 
 export default Home;
