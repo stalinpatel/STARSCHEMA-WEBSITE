@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Menu, X, ChevronDown, Phone } from "lucide-react";
-
+import { Link } from "react-router-dom";
 const UserNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -46,28 +46,17 @@ const UserNavbar = () => {
     <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-
           {/* Logo Section */}
-          <div className="flex items-center gap-3 shrink-0">
-            <a href="#" className="flex items-center gap-3">
-              {/* Circular Logo */}
-              <div className="w-12 h-12 rounded-full bg-orange-500 flex items-center justify-center overflow-hidden shadow-md">
-                <img 
-                  src="/logo.png" 
-                  alt="logo"
-                  className="w-8 h-8 object-contain"
-                />
-              </div>
-
-              {/* Brand Name */}
-              <span
-                className="text-2xl font-bold text-gray-800"
-                style={{ fontFamily: "Poppins, sans-serif" }}
-              >
-                Star<span className="text-orange-500">Schema</span>
-              </span>
-            </a>
-          </div>
+          <Link to="/" className="flex gap-0.5 items-center ">
+            <img
+              src="/logo.png"
+              alt="StarSchema Logo"
+              className="w-10 h-10 sm:w-14 sm:h-14 transition-all duration-300"
+            />
+            <span className="text-xl pb-0.5 sm:text-3xl font-extrabold tracking-wide text-text-primary accent">
+              Star<span className="text-primary">Schema</span>
+            </span>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
@@ -75,7 +64,9 @@ const UserNavbar = () => {
               <div
                 key={item.name}
                 className="relative"
-                onMouseEnter={() => item.dropdown && setActiveDropdown(item.name)}
+                onMouseEnter={() =>
+                  item.dropdown && setActiveDropdown(item.name)
+                }
                 onMouseLeave={() => setActiveDropdown(null)}
               >
                 <a

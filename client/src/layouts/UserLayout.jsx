@@ -1,6 +1,6 @@
-import { Outlet } from "react-router-dom"; // ← Import Outlet
-import UserNavbar from "../components/layout/user/UserNavbar";
-import UserFooter from "./UserFooter";
+import { Outlet } from "react-router-dom"; 
+import UserNavbar from "../components/user/common/UserNavbar";
+import UserFooter from "../components/user/common/UserFooter";
 
 const UserLayout = () => {
   return (

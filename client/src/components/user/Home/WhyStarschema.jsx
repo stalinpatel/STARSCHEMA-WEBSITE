@@ -1,10 +1,10 @@
 import React from "react";
-import frame1 from "../../assets/images/home/frame_1.png";
-import frame2 from "../../assets/images/home/frame_2.png";
-import frame3 from "../../assets/images/home/frame_3.png";
-import frame4 from "../../assets/images/home/frame_4.png";
-import frame5 from "../../assets/images/home/frame_5.png";
-import frame6 from "../../assets/images/home/frame_6.png";
+import frame1 from "../../../assets/images/home/frame_1.png";
+import frame2 from "../../../assets/images/home/frame_2.png";
+import frame3 from "../../../assets/images/home/frame_3.png";
+import frame4 from "../../../assets/images/home/frame_4.png";
+import frame5 from "../../../assets/images/home/frame_5.png";
+import frame6 from "../../../assets/images/home/frame_6.png";
 
 const WhyStarSchema = () => {
   const cardsData = [
