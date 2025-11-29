@@ -3,11 +3,11 @@ import UserLayout from "../layouts/UserLayout";
 import Home from "../pages/user/Home";
 import Contact from "../pages/user/Contact";
 
-const UserRoutes = (
+const PublicRoutes = [
   <Route path="/" element={<UserLayout />}>
     <Route index element={<Home />} />
-    <Route path="contact" element={<Contact />} />
-  </Route>
-);
+    <Route path="/contact" element={<Contact />} />
+  </Route>,
+];
 
-export default UserRoutes;
+export default PublicRoutes;
