@@ -1,13 +1,25 @@
-import { Route } from "react-router-dom";
-import UserLayout from "../layouts/UserLayout";
-import Home from "../pages/user/Home";
-import Contact from "../pages/user/Contact";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 
-const UserRoutes = (
-  <Route path="/" element={<UserLayout />}>
-    <Route index element={<Home />} />
-    <Route path="contact" element={<Contact />} />
-  </Route>
-);
+import Home from "../pages/user/Home";
+import About from "../pages/user/About";
+import Courses from "../pages/user/Courses";
+import CourseDetails from "../pages/user/CourseDetails";
+
+import UserLayout from "../layouts/UserLayout";
+
+const UserRoutes = () => {
+  return (
+    <Routes>
+      <Route element={<UserLayout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/courses" element={<Courses />} />
+        <Route path="/courses/:id" element={<CourseDetails />} />
+      </Route>
+    </Routes>
+  );
+};
 
 export default UserRoutes;
+
