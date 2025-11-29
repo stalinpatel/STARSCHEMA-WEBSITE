@@ -1,13 +1,12 @@
 const express = require("express");
-const Lead = require("../models/lead.model");
+const Lead = require("../models/lead.model.js");
 const router = express.Router();
 
-/** POST /api/leads */
-router.post("/leads", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
-    const { name, email, phone, message } = req.body;
+    const { name, email, phone, source, courseChoice } = req.body;
 
-    if (!name || !email || !message) {
+    if (!name || !email  || !source || !courseChoice) {
       return res.status(400).json({ error: "Missing required fields" });
     }
 
@@ -15,7 +14,8 @@ router.post("/leads", async (req, res) => {
       name,
       email,
       phone,
-      message,
+      source,
+      courseChoice,
     });
 
     res.status(200).json({ success: true, lead });
@@ -25,9 +25,7 @@ router.post("/leads", async (req, res) => {
   }
 });
 
-
-/** GET /api/admin/leads */
-router.get("/admin/leads", async (req, res) => {
+router.get("/admin", async (req, res) => {
   try {
     const leads = await Lead.find().sort({ createdAt: -1 });
     res.json(leads);
@@ -37,8 +35,7 @@ router.get("/admin/leads", async (req, res) => {
   }
 });
 
-/** DELETE /api/admin/leads/:id */
-router.delete("/admin/leads/:id", async (req, res) => {
+router.delete("/admin/:id", async (req, res) => {
   try {
     await Lead.findByIdAndDelete(req.params.id);
     res.json({ success: true });

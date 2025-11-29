@@ -4,7 +4,6 @@ import msmeLogo from "../../../assets/logo/msme_logo.png";
 import heroBg from "../../../assets/images/hero_background.jpg";
 import axios from "axios";
 
-
 const HeroSection = () => {
   const [fullName, setFullName] = React.useState("");
   const [email, setEmail] = React.useState("");
@@ -25,15 +24,21 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-white/20"></div>
 
       <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        
         {/* LEFT SIDE */}
         <div>
           <div
             className="inline-flex items-center gap-3 bg-orange-100 px-4 py-3 rounded-full shadow-sm mb-6 border border-orange-300"
             style={{ backgroundColor: "rgba(255, 255, 255, 0.2)" }}
           >
-            <img src={msmeLogo} alt="MSME Registered" className="w-16 h-auto object-contain" />
-            <p className="text-black-700 font-semibold text-sm" style={{ fontFamily: "Quicksand, sans-serif" }}>
+            <img
+              src={msmeLogo}
+              alt="MSME Registered"
+              className="w-16 h-auto object-contain"
+            />
+            <p
+              className="text-black-700 font-semibold text-sm"
+              style={{ fontFamily: "Quicksand, sans-serif" }}
+            >
               MSME Registered • Certified Training Provider
             </p>
           </div>
@@ -48,13 +53,19 @@ const HeroSection = () => {
             <div className="text-orange-500">What They Teach</div>
           </h1>
 
-          <p className="text-lg text-gray-600 mb-8" style={{ fontFamily: "Poppins, sans-serif" }}>
+          <p
+            className="text-lg text-gray-600 mb-8"
+            style={{ fontFamily: "Poppins, sans-serif" }}
+          >
             Designed for working professionals ready to grow, switch or lead in
             the world of Data, AI, Cloud and Analytics.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-4">
-            <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-md transition">
+            <button
+              onClick={() => (window.location.href = `/courses`)}
+              className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-md transition"
+            >
               Explore Courses
             </button>
 
@@ -72,11 +83,17 @@ const HeroSection = () => {
         {/* RIGHT SIDE - FORM */}
         <div>
           <div className="bg-white shadow-lg rounded-2xl p-8">
-            <h2 className="text-2xl font-bold mb-2 text-gray-900" style={{ fontFamily: "Poppins, sans-serif" }}>
+            <h2
+              className="text-2xl font-bold mb-2 text-gray-900"
+              style={{ fontFamily: "Poppins, sans-serif" }}
+            >
               Book a Free Demo Session
             </h2>
 
-            <p className="text-gray-600 mb-6" style={{ fontFamily: "Quicksand, sans-serif" }}>
+            <p
+              className="text-gray-600 mb-6"
+              style={{ fontFamily: "Quicksand, sans-serif" }}
+            >
               Take the first step towards your growth.
             </p>
 
@@ -85,49 +102,52 @@ const HeroSection = () => {
               className="space-y-4"
               style={{ fontFamily: "Poppins, sans-serif" }}
               onSubmit={async (e) => {
-  e.preventDefault();
+                e.preventDefault();
 
-  const errors = {};
+                const errors = {};
 
-  if (!fullName.trim()) errors.fullName = "Full name is required";
-  if (!email.trim()) {
-    errors.email = "Email is required";
-  } else if (!/\S+@\S+\.\S+/.test(email)) {
-    errors.email = "Enter a valid email";
-  }
-  if (!phone.trim()) {
-    errors.phone = "Contact number is required";
-  } else if (phone.length < 10) {
-    errors.phone = "Phone number must be at least 10 digits";
-  }
-  if (!course) errors.course = "Please select a course";
+                if (!fullName.trim()) errors.fullName = "Full name is required";
+                if (!email.trim()) {
+                  errors.email = "Email is required";
+                } else if (!/\S+@\S+\.\S+/.test(email)) {
+                  errors.email = "Enter a valid email";
+                }
+                if (!phone.trim()) {
+                  errors.phone = "Contact number is required";
+                } else if (phone.length < 10) {
+                  errors.phone = "Phone number must be at least 10 digits";
+                }
+                if (!course) errors.course = "Please select a course";
 
-  setFormErrors(errors);
+                setFormErrors(errors);
 
-  if (Object.keys(errors).length > 0) return;
+                if (Object.keys(errors).length > 0) return;
 
-  try {
-    const res = await axios.post("http://localhost:2000/api/leads", {
-      name: fullName,
-      email,
-      phone,
-      courseChoice: course,
-      source: "hero"
-    });
+                try {
+                  const res = await axios.post(
+                    `${import.meta.env.VITE_API_URL}/leads`,
+                    {
+                      name: fullName,
+                      email,
+                      phone,
+                      courseChoice: course,
+                      source: "hero",
+                    }
+                  );
+                  console.log("res:", res);
 
-    alert("Demo session request submitted successfully!");
+                  alert("Demo session request submitted successfully!");
 
-    // Clear form
-    setFullName("");
-    setEmail("");
-    setPhone("");
-    setCourse("");
-  } catch (error) {
-    console.error(error);
-    alert("Something went wrong while submitting the form.");
-  }
-}}
-
+                  // Clear form
+                  setFullName("");
+                  setEmail("");
+                  setPhone("");
+                  setCourse("");
+                } catch (error) {
+                  console.error(error);
+                  alert("Something went wrong while submitting the form.");
+                }
+              }}
             >
               {/* Full Name */}
               <div>
@@ -143,7 +163,9 @@ const HeroSection = () => {
                   }`}
                 />
                 {formErrors.fullName && (
-                  <p className="text-red-600 text-sm mt-1">{formErrors.fullName}</p>
+                  <p className="text-red-600 text-sm mt-1">
+                    {formErrors.fullName}
+                  </p>
                 )}
               </div>
 
@@ -161,7 +183,9 @@ const HeroSection = () => {
                   }`}
                 />
                 {formErrors.email && (
-                  <p className="text-red-600 text-sm mt-1">{formErrors.email}</p>
+                  <p className="text-red-600 text-sm mt-1">
+                    {formErrors.email}
+                  </p>
                 )}
               </div>
 
@@ -179,7 +203,9 @@ const HeroSection = () => {
                   }`}
                 />
                 {formErrors.phone && (
-                  <p className="text-red-600 text-sm mt-1">{formErrors.phone}</p>
+                  <p className="text-red-600 text-sm mt-1">
+                    {formErrors.phone}
+                  </p>
                 )}
               </div>
 
@@ -201,7 +227,9 @@ const HeroSection = () => {
                   <option>Analytics</option>
                 </select>
                 {formErrors.course && (
-                  <p className="text-red-600 text-sm mt-1">{formErrors.course}</p>
+                  <p className="text-red-600 text-sm mt-1">
+                    {formErrors.course}
+                  </p>
                 )}
               </div>
 

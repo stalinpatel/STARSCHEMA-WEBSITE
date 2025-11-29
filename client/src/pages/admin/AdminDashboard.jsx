@@ -9,7 +9,8 @@ export default function AdminDashboard() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/admin/leads")
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/admin/leads`)
       .then((res) => {
         setLeads(res.data.leads);
         setLoading(false);

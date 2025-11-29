@@ -28,9 +28,9 @@ export default function Contact() {
       setLoading(true);
       
       const res = await axios.post(
-      "http://localhost:2000/starschema/api/leads",
-      form,
-      { headers: { "Content-Type": "application/json" } }
+        `${import.meta.env.VITE_API_URL}/leads`,
+        form,
+        { headers: { "Content-Type": "application/json" } }
       );
 
 

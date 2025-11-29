@@ -6,7 +6,7 @@ const leadRoutes = require("./lead.routes");
 const userRoutes = require("./user.routes");
 
 router.use("/auth", authRoutes);
-router.use("/api", leadRoutes);
-router.use("/user", userRoutes); // enables /starschema/user/me
+router.use("/leads", leadRoutes);
+router.use("/user", userRoutes);
 
 module.exports = router;
