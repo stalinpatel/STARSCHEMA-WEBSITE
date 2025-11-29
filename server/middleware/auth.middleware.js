@@ -1,8 +1,15 @@
-const jwt = require("jsonwebtoken");
-
-const authMiddleware = async (req, res, next) => {
+exports.protect = async (req, res, next) => {
   try {
-  } catch (error) {}
-};
+    // Add your JWT verify logic here
 
-module.exports = authMiddleware;
+    // Example:
+    // req.user = decodedTokenUserData;
+
+    next();
+  } catch (error) {
+    return res.status(401).json({
+      success: false,
+      message: "Not authorized",
+    });
+  }
+};
