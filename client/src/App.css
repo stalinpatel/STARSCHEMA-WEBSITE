@@ -1,89 +1,24 @@
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+.courses-container {
+  padding: 40px;
+  text-align: center;
 }
 
-/* Glass effect */
-.navbar-glass {
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-top: 30px;
 }
 
-/* Dropdown Animation */
-.dropdown-animation {
-  animation: dropdownFade 0.25s ease forwards;
+.course-card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-@keyframes dropdownFade {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0px);
-  }
-}
-
-/* Mobile slide-down animation */
-.mobile-slide {
-  animation: mobileSlideDown 0.3s ease forwards;
-}
-
-@keyframes mobileSlideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Circle container for logo */
-.nav-logo-circle {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #ff7a1a, #ff5b00);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6px;
-  overflow: hidden;
-}
-
-/* Logo inside circle */
-.nav-logo-circle img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-/* Nav link hover */
-.nav-link {
-  transition: color 0.25s ease, transform 0.2s ease;
-}
-
-.nav-link:hover {
-  transform: translateY(-2px);
-}
-
-/* Dropdown item hover */
-.dropdown-item {
-  transition: background 0.25s ease, color 0.25s ease, padding-left 0.2s;
-}
-
-.dropdown-item:hover {
-  padding-left: 18px;
-}
-
-/* CTA button hover */
-.btn-orange {
-  transition: background 0.25s ease, box-shadow 0.3s ease;
-}
-
-.btn-orange:hover {
-  box-shadow: 0px 4px 15px rgba(255, 120, 60, 0.4);
+.course-card img {
+  width: 120px;
+  height: auto;
+  margin-bottom: 15px;
 }
